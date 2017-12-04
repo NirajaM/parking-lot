@@ -4,6 +4,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +13,7 @@ public class ParkingLotTest {
     private ParkingLot parkingLot;
 
     @Before
-    public void setUp() {
+    public void setUp() throws FileNotFoundException {
         parkingLot = new ParkingLot(3);
         Vehicle vehicle1 = new Vehicle(VehicleTypes.Car.name(), "res1", "white");
         Vehicle vehicle2 = new Vehicle(VehicleTypes.Car.name(), "res2", "black");
@@ -46,7 +48,7 @@ public class ParkingLotTest {
 
     @Test
     public void testSlotNumForRegistrationNumPos() {
-        assertTrue(parkingLot.slotNumForRegistrationNum("res1") == 0);
+        assertTrue(parkingLot.slotNumForRegistrationNum("res1") == 1);
     }
 
     @Test
